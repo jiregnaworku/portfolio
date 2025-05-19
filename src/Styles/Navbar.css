@@ -1,76 +1,72 @@
+/* Navbar.css */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgb(243, 130, 0);
-  color: white;
+  background-color: #111;
+  color: #fff;
+  position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00d8ff;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
   list-style: none;
-}
-.nav-links a :hover {
-  color: #007bff;
+  gap: 1.5rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: inherit;
+  color: #fff;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
-.theme-toggle {
-  background: none;
-  border: 1px solid currentColor;
-  padding: 5px 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: 0.3s;
+.nav-links li a:hover {
+  color: #00d8ff;
 }
 
-.theme-toggle:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-.logo {
+.hamburger {
+  display: none;
   font-size: 1.5rem;
-  font-weight: bold;
-  color: rgb(247, 250, 252);
-  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
 }
 
-/* Responsive Navbar */
+/* Responsive styles */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
+  .hamburger {
+    display: block;
   }
 
   .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
     flex-direction: column;
+    background-color: #111;
     gap: 1rem;
-    width: 100%;
-    margin-top: 1rem;
+    padding: 1.5rem 0;
+    align-items: center;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
   }
 
-  .nav-links li {
-    width: 100%;
-  }
-
-  .nav-links li a {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
-
-  .theme-toggle {
-    align-self: flex-end;
-    margin-top: 1rem;
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 }

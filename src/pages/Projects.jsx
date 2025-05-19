@@ -7,7 +7,7 @@ const projects = [
     description:
       "A responsive online coffee shop web app built for Afaan Oromoo speakers. Features product listings, cart, and order management. Available on GitHub.",
     tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/jiregnaworku/online-coffee-shop", // Replace with your actual link
+    link: "https://jiregnaworku.github.io/Online-coffee-shop/",
     status: "Completed",
   },
   {
@@ -15,7 +15,7 @@ const projects = [
     description:
       "A full-stack MERN web app for managing rental properties. Includes landlord/tenant login, rental forms, payments, and admin dashboards. Built during internship at OICT Solution.",
     tech: ["React", "Node.js", "MongoDB", "Express"],
-    link: "#", // Add link if available
+    link: "#",
     status: "Ongoing (Internship)",
   },
   {
@@ -23,33 +23,46 @@ const projects = [
     description:
       "A colorful and engaging app for kids to learn alphabets, numbers, colors, and more. Built with Flutter and includes dark mode, parent lock, and local storage features.",
     tech: ["Flutter", "Dart"],
-    link: "#", // Add GitHub link if available
-    status: "Nearly Done",
+    link: "https://github.com/jiregnaworku/kids_learning_app",
+    status: "Nearly Done...",
   },
 ];
 
 const Projects = () => {
   return (
-    <section className="projects" id="Projects">
-      <h2>My Projects</h2>
-      <div className="project-grid">
-        {projects.map((proj, index) => (
-          <div className="project-card" key={index}>
-            <h3>{proj.title}</h3>
-            <p>{proj.description}</p>
-            <div className="tech-tags">
-              {proj.tech.map((t, i) => (
-                <span key={i}>{t}</span>
-              ))}
+    <section id="Projects" className="projects-section">
+      <div className="projects-container">
+        <h2 className="projects-title">My Projects</h2>
+
+        <div className="project-grid">
+          {projects.map((proj, index) => (
+            <div key={index} className="project-card">
+              <h3 className="project-title">{proj.title}</h3>
+              <p className="project-desc">{proj.description}</p>
+
+              <div className="tech-tags">
+                {proj.tech.map((t, i) => (
+                  <span key={i} className="tech-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <p className="project-status">{proj.status}</p>
+
+              {proj.link && proj.link !== "#" && (
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  🔗 View Project
+                </a>
+              )}
             </div>
-            <p className="status">{proj.status}</p>
-            {proj.link && (
-              <a href={proj.link} target="_blank" rel="noopener noreferrer">
-                🔗 View Project
-              </a>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

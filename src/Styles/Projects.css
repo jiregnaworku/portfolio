@@ -1,65 +1,92 @@
-.projects {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
+/* Projects.css */
+.projects-section {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e0e7ef 100%);
+  color: #1a202c;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.projects h2 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
+.projects-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: -1px;
+  color: #0f172a;
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 24px rgba(16, 30, 54, 0.08);
+  transition: box-shadow 0.3s, transform 0.3s;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  position: relative;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(16, 30, 54, 0.16);
+  transform: translateY(-6px) scale(1.02);
 }
 
-.project-card h3 {
-  font-size: 1.4rem;
-  color: #333;
-}
-
-.project-card p {
-  margin: 10px 0;
-  color: #666;
+.project-title {
+  margin-bottom: 1rem;
 }
 
 .tech-tags {
-  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.tech-tags span {
-  display: inline-block;
-  background: #eee;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 4px 4px 0 0;
-  font-size: 0.85rem;
+.tech-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #dbeafe;
+  color: #1e40af;
 }
 
-.status {
-  font-style: italic;
-  margin-top: 8px;
-  color: #007acc;
+.project-status {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #059669;
+  margin-bottom: 0.5rem;
 }
 
-.project-card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007acc;
+.project-link {
+  font-size: 0.875rem;
+  color: #2563eb;
   text-decoration: none;
-  font-weight: bold;
+}
+
+.project-link:hover {
+  text-decoration: underline;
 }
